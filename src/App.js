@@ -1,17 +1,19 @@
 import { React, useEffect } from 'react';
 import './App.scss';
+import input from './components/input';
 import context from './core/context';
 import SampleService from './services/sample';
-import SimpleButton from './components/simpleButton';
 
 const App = () => {
 	useEffect(SampleService.sayHai, []);
+	// eslint-disable-next-line no-console
+	console.log(context.state);
 
 	return (
 		<div className="App">
-			<div>Count: { context.state.count }</div>
-			<div>{ SimpleButton() }</div>
-			<div>Refresh ID: { context.state.refreshID }</div>
+			<div>Question: { context.state.refreshID }</div>
+			<div>{ input() }</div>
+			count: { context.state.count }
 		</div>
 	);
 };
