@@ -3,9 +3,11 @@ import { React } from 'react';
 import context from '../core/context';
 
 const Input = () =>
-	<form onSubmit={ (event) => context.actions.increaseCount(event) }>
-		<input type="text" name="question"/>
-		<button>Check</button>
-	</form>;
+	<input
+		type="text"
+		value={ context.state.inputQuestion }
+		onChange={ (event) =>
+			context.actions.updateQuestion(event.target.value) }
+	/>;
 
 export default Input;

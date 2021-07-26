@@ -1,3 +1,3 @@
-const checkInput = (refreshID, question) => (refreshID === question ? 1 : 0);
+const checkInput = (data, question) => (data === question ? 1 : 0);
 
 export default checkInput;

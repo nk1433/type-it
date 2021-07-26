@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 jest.mock('./components/simpleButton');
 jest.mock('./core/context', () => ({
 	state: {
-		count: 0,
+		score: 0,
 		refreshID: 'ABCD',
 	},
 }));
@@ -14,7 +14,7 @@ import App from './App';
 
 test('renders learn react link', () => {
 	render(<App/>);
-	const someText = screen.getByText(/count/i);
+	const someText = screen.getByText(/score/i);
 
 	expect(someText).toBeInTheDocument();
 });
