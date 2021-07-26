@@ -1,16 +1,16 @@
 import checkInput from '../services/checkQuestion';
 import { rndString } from '@laufire/utils/random';
+import context from './context';
 const refreshIDLength = 4;
 
-const updateQuestion = ({ state, data }) => ({
-	inputQuestion: checkInput(state.question, data) ? '' : data,
-	score:
-	state.score + checkInput(state.question, data),
-	question:
-	checkInput(state.question, data)
-		? rndString(refreshIDLength)
-		: state.question,
-});
+const updateQuestion = ({ state, data }) => (checkInput(state.question, data)
+	? {	inputQuestion: '',
+		score:
+	state.score + context.config.increment,
+		question: rndString(refreshIDLength) }
+	: {
+		inputQuestion: data,
+	});
 
 const actions = {
 	updateQuestion,
