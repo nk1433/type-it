@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
 import { React } from 'react';
 import context from '../core/context';
+import matchString from '../services/highlight';
 
 const Question = () =>
-	// <span>
-	// 	{ context.state.question.substr(context.actions.matchString(context.state.question, context.state.inputQuestion))}
-	// </span>;
-	<span>{ context.state.remainingQuestion }</span>;
+	<span>
+		{ matchString(context.state.question,
+			context.state.inputQuestion).remainingQuestion}
+	</span>;
 
 export default Question;
