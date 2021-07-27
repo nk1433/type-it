@@ -1,6 +1,5 @@
 import { React, useEffect } from 'react';
 import './App.scss';
-import Highlight from './components/highlight';
 import Input from './components/input';
 import Question from './components/question';
 import Score from './components/score';
@@ -11,7 +10,6 @@ const App = () => {
 
 	return (
 		<div className="App">
-			Question: { Highlight() }
 			{ Question() }
 			<div>{ Input() }</div>
 			<div>{ Score() }</div>
