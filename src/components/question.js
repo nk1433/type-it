@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
 import { React } from 'react';
 import context from '../core/context';
-import obj from '../services/stringServices';
+import StringServices from '../services/stringServices';
 
 const Question = () => {
-	const data = obj.compareString(context.state);
+	const data = StringServices.compareString(context.state);
 
 	return (
 		<>

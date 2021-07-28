@@ -12,9 +12,9 @@ const compareString = ({ question, inputQuestion }) => {
 
 const checkInput = (data, question) => (data === question ? 1 : 0);
 
-const stringServices = {
+const StringServices = {
 	compareString,
 	checkInput,
 };
 
-export default stringServices;
+export default StringServices;
