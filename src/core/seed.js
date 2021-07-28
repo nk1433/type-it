@@ -6,6 +6,7 @@ const seed = {
 	inputQuestion: config.question,
 	matchedString: config.matchedInitialValue,
 	remainingQuestion: config.randomQuestion,
+	time: config.time,
 };
 
 export default seed;

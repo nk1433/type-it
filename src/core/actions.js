@@ -4,24 +4,33 @@ import StringServices from '../services/stringServices';
 
 const refreshIDLength = 4;
 
-// const checkInput = (data, question) => (data === question ? 1 : 0);
+const updateQuestion = ({ state, data }) =>
+	(StringServices.checkInput(state.question, data)
+		? {
+			question: rndString(refreshIDLength),
+			inputQuestion: '',
+			score: state.score + context.config.increment,
+			time: context.config.time,
+		}
+		: {
+			inputQuestion: data,
+		});
 
-const updateQuestion = ({ state, data }) => {
-	const matched = StringServices.checkInput(state.question, data);
+const decrementTime = ({ state }) => {
+	const reset = state.time === 0;
 
 	return {
-		question: matched
-			? rndString(refreshIDLength)
-			: state.question,
-		inputQuestion: matched ? '' : data,
-		score: matched
-			? state.score + context.config.increment
-			: state.score,
+		time: reset
+			? context.config.time
+			: state.time - context.config.increment,
+		question: reset ? rndString(refreshIDLength) : state.question,
+		inputQuestion: reset ? '' : state.inputQuestion,
 	};
 };
 
 const actions = {
 	updateQuestion,
+	decrementTime,
 };
 
 export default actions;
