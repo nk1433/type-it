@@ -1,6 +1,7 @@
-import { rndString } from '@laufire/utils/random';
+// import { rndString } from '@laufire/utils/random';
+import faker from 'faker';
 
-const questionIDLength = 4;
+// const questionIDLength = 4;
 const millisecond = 1000;
 const second = 1;
 
@@ -9,7 +10,7 @@ const config = {
 	increment: 1,
 	question: '',
 	matchedInitialValue: '',
-	randomQuestion: rndString(questionIDLength),
+	randomQuestion: faker.random.word(),
 	time: 10,
 	delay: millisecond * second,
 };

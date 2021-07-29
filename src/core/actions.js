@@ -1,13 +1,11 @@
-import { rndString } from '@laufire/utils/random';
 import context from './context';
 import StringServices from '../services/stringServices';
-
-const refreshIDLength = 4;
+import faker from 'faker';
 
 const updateQuestion = ({ state, data }) =>
 	(StringServices.checkInput(state.question, data)
 		? {
-			question: rndString(refreshIDLength),
+			question: faker.random.word(),
 			inputQuestion: '',
 			score: state.score + context.config.increment,
 			time: context.config.time,
@@ -20,7 +18,7 @@ const decrementTime = ({ state }) =>
 	(state.time === 0
 		? {
 			time: context.config.time,
-			question: rndString(refreshIDLength),
+			question: faker.random.word(),
 			inputQuestion: '',
 		}
 		: {
