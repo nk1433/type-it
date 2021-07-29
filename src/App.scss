@@ -1,7 +1,34 @@
 .App {
 	text-align: center;
+	position: relative;
 
 	button {
 		font-weight: bold;
+	}
+}
+
+.clock {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+
+	.circle {
+		position: relative;
+		height: 100px;
+		width: 100px;
+		border-radius: 50%;
+		background-color: violet;
+
+		& .minutes{
+			height: 50px;
+			width: 5px;
+			background-color: blue;
+			position: absolute;
+			// bottom: 50%;
+			left:  47%;
+			transform-origin: bottom;
+			transform: translate(-50%,-50%);
+			// animation: rotation 10s infinite linear;
+		}
 	}
 }
